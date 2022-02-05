@@ -26,4 +26,8 @@
 !/.github/*
 !/pub
 /pub/*
+<<<<<<< HEAD
 !/template.sh
+=======
+!/template.sh
+>>>>>>> c5b003d61e918586d16bb307d7c86bc2b273084e

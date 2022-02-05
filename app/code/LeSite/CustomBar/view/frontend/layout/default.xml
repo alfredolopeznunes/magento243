@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <body>
+    <referenceContainer name="header.container">
+      <container name="top.small.bar" label="Top Small Bar" htmlClass="top-small-bar" htmlTag="div" before="-">
+        <block class="LeSite\CustomBar\Block\Index" name="custom_section" template="LeSite_CustomBar::top-small-bar.phtml"/>
+      </container>
+    </referenceContainer>
+  </body>
+</page>
