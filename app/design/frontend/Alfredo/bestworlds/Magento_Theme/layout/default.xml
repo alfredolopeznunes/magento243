@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <head>
+        <css rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" src_type="url"/>
+        <css rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/fontawesome.min.css" src_type="url"/>
+        <css rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/brands.min.css" src_type="url"/>
+    </head>
+    <body>
+        <!-- remove the native top header -->
+        <referenceContainer name="header.panel" remove="true"/>
+        <referenceBlock name="store.links" remove="true" />
+        
+        <!-- add a block in the top header -->
+        <referenceContainer name="header.container">
+           <container name="header.top.nav" label="Page Header Panel" htmlTag="div" htmlClass="panel header" before="-">
+                    <block class="Magento\Framework\View\Element\Template" name="topnav" template="Magento_Theme::html/header/topnav.phtml"/>
+                </container>
+        </referenceContainer>
+
+        <referenceContainer name="header-wrapper">
+            <block class="Magento\Framework\View\Element\Template" name="header.account" template="Magento_Theme::html/header/links.phtml"/>
+        </referenceContainer>
+
+        <!-- move elements -->
+        <!-- <move element="top.search" destination="page.wrapper" before="-"/> -->
+        <move element="minicart" destination="header-wrapper" after="header.account"/>
+        <move element="navigation.sections" destination="header-wrapper" after="logo" />
+    </body>
+</page>
