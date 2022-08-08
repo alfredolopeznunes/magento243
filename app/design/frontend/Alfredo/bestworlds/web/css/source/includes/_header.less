@@ -1,0 +1,430 @@
+//
+//  Common
+//  -------------------------------------------
+
+& when (@media-common = true) {
+    body#html-body {
+        .page-wrapper {
+            .page-header {
+                border-bottom: none;
+                font-family: 'Displayed',arial;
+                font-size: 1.9rem;
+                top: 0;
+                transition-duration: .5s;
+                width: 100%;
+                z-index: 99;
+                background-color: @tag__black;
+                margin-bottom: 0;
+                position: fixed;
+
+                .panel.header {
+                    background-color: @tag__red;
+                    color: @tag__white;
+                    padding: 10px;
+                    text-align: center;
+                    max-width: 100%;
+
+                    .phone-bar {
+                        a {
+                            color: @tag__white;
+                            display: inline-block;
+                            transition-duration: .4s;
+
+                            &:hover {
+                                color: @tag__black;
+
+                                .fas {
+                                    transform: scale(1.1) rotate(20deg) translatex(5px);
+                                }
+                            }
+
+                            .fas {
+                                transition: transform .4s;
+                            }
+                        }
+                    }
+                }
+
+                .header.content {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 15px;
+                    max-width: 1280px;
+
+                    // Menu
+                    .sections.nav-sections {
+                        flex: 1 1 0;
+                        margin: 0;
+                        background: transparent;
+
+                        .nav-sections-items {
+                            .nav-sections-item-content {
+                                .navigation {
+                                    background: transparent;
+
+                                    > ul {
+                                        li.level0 {
+                                            a.level-top {
+                                                color: @tag__white;
+                                                font-size: 2rem;
+                                                font-weight: normal;
+                                                line-height: 1em;
+                                                transition-duration: .4s;
+                                                line-height: 1em;
+
+                                                &:hover {
+                                                    color: @tag__red;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // Searcher
+                    .block.block-search {
+                        max-width: 1280px;
+                        width: 100%;
+                        float: none;
+                        border-top: none;
+                        box-sizing: border-box;
+                        left: 0;
+                        margin: 0;
+                        padding: 0;
+                        position: absolute;
+                        right: 0;
+                        top: 100%;
+        
+                        .form.minisearch {
+                            display: none;
+        
+                            &.active {
+                                display: block;
+        
+                                .field.search {
+                                    display: flex;
+                                    align-items: center;
+                                    width: 100%;
+                                    border-bottom: solid 2px @tag__red;
+                                    background: @tag__bg__disable;
+                
+                                    .label {
+                                        float: none;
+                                        flex-basis: 5%;
+                                        min-width: 24px;
+                
+                                        &:before {
+                                            margin: 0 0px 0px 10px;
+                                            font-size: 14px;
+                                            color: @tag__disable;
+                                        }
+                                    }
+                
+                                    .control {
+                                        margin: 0;
+                                        padding: 0;
+                                        flex-basis: 90%;
+                    
+                                        input {
+                                            background: @tag__bg__disable;
+                                            border: none;
+                                            border-radius: 0;
+                                            color: @tag__black;
+                                            font-size: 1.6rem;
+                                            margin: 0;
+                                            padding: 20px 15px;
+                                            position: static;
+                                            width: 100%;
+                
+                                            &::placeholder {
+                                                font-size: 14px;
+                                                font-style: italic;
+                                                letter-spacing: 1px;
+                                                color: @tag__disable;
+                                            }
+                
+                                            &:focus {
+                                                box-shadow: none;
+                                                outline: none;
+                                            }
+                                        }
+                                    }
+        
+                                    .closed-menu-icon {
+                                        flex-basis: 5%;
+                                        min-width: 22px;
+                                        cursor: pointer;
+                                        pointer-events: all;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .icon-search, .myaccount {
+                        color: @tag__white;
+                        margin-right: 15px;
+                        font-weight: 600;
+                        transition-duration: .4s;
+                    }
+
+                    .icon-search {
+                        font-size: 21px;
+
+                        i.fas.fa-search {
+                            pointer-events: all;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .myaccount {
+                        font-size: 22px;
+                    }
+
+                    .minicart-wrapper {
+                        margin-top: 0;
+
+
+                        .action.showcart {
+                            &:before {
+                                content: "\f07a";
+                                font-family: 'Font Awesome 5 Free';
+                                font-size: 21px;
+                                font-weight: 600;
+                                transition-duration: .4s;
+                                color: @tag__white;
+                            }
+                        }
+                    }
+                } 
+            }
+        }
+    }
+}
+
+//
+//  Style groups for 'mobile' devices
+//  ---------------------------------------------
+
+& when (@media-target ='mobile'), (@media-target ='all') {
+    
+    @media only screen and (max-width: (@screen__m - 1)) {
+
+        body#html-body {
+            .page-wrapper {
+                .page-header {
+                    .header.content {
+                        .nav-toggle {
+                            order: -1;
+                            margin-right: 15px;
+                            position: static;
+    
+                            &:before {
+                                color: @tag__white;
+                            }
+                        }
+
+                        .logo {
+                            order: 1;
+                            box-sizing: border-box;
+                            margin: 0 auto;
+                            max-width: 169px;
+                        }
+
+                        .sections.nav-sections {
+                            background: @tag__black;
+
+                            .nav-sections-items {
+                                
+                                .nav-sections-item-title {
+                                    display: none;
+                                }
+
+                                .nav-sections-item-content {
+                                    float: none;
+                                    margin: 0 20px;
+                                    width: auto;
+
+                                    .navigation {
+
+                                        > ul {
+                                            li.level0 {
+                                                border-top-color: @tag__border;
+                                                border-bottom: 1px solid @tag__border;
+
+                                                &:first-child {
+                                                    border-top: none;
+                                                }
+
+                                                a.level-top {
+                                                    :last-child {
+                                                        border-top-color: @tag__border;
+                                                    }
+                                                }
+
+                                                .submenu {
+                                                    border-top-color: @tag__border;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                        .icon-search {
+                            order: 0;
+                            .fa-search {
+                                &::before {
+                                    vertical-align: middle;
+                                }
+                            }
+                        }
+                        
+                        a.myaccount {
+                            order: 2;
+                            margin-left: 15px;
+                        }
+                        
+                        .minicart-wrapper {
+                            order: 3;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+}
+
+//
+//  Style groups for 'desktop' devices
+//  ---------------------------------------------
+
+& when (@media-target = 'desktop'), (@media-target = 'all') {
+
+    @media all and (min-width: @screen__m), print {
+        .media-width('min', @screen__m);
+
+        body#html-body {
+            .page-wrapper {
+
+                .page-header {
+                    
+                    .panel.header {
+                        height: auto !important;
+                    }
+
+                    .header.content {
+                        .logo {
+                            margin: 0px auto 0px 0;
+                        }
+
+                        // Menu
+                        .sections.nav-sections {
+
+                            .nav-sections-items {
+                                .nav-sections-item-content {
+                                    .navigation {
+                                        padding: 0 10px;
+
+                                        > ul {
+                                            display: flex;
+                                            justify-content: space-between;
+                                            margin: 0 auto;
+                                            max-width: 850px;
+
+                                            li.level0 {
+                                                a.level-top {
+                                                    text-align: center;
+                                                    padding: 10px 25px 10px 10px;
+                                                }
+
+                                                .submenu {
+                                                    background: @tag__black;
+                                                    border: 0;
+
+                                                    a {
+                                                        color: @tag__white;
+
+                                                        &:hover {
+                                                            color: @tag__red;
+                                                            background: @tag__black;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        // Searcher
+                        .block.block-search {
+
+                            .form.minisearch {
+            
+                                &.active {
+        
+                                    .field.search {
+                    
+                                        .label {
+                                            height: auto;
+                                            margin: 0;
+                                            overflow: visible;
+                                            padding: 0;
+                                            position: initial;
+                                            width: auto;
+                                            flex-basis: 2%;
+                                        }
+        
+                                        .control {
+                                            flex-basis: 96%;
+                                        }
+        
+                                        .closed-menu-icon {
+                                            flex-basis: 2%;
+                                        }
+                                    }
+        
+                                    .actions {
+                                        .action.search {
+                                            display: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .icon-search, .myaccount {
+                            .fas {
+                                &:hover {
+                                    &:before {
+                                        color: @tag__red;
+                                    }
+                                }
+                            }
+                        }
+
+                        .minicart-wrapper {
+                            margin-left: 0;
+
+                            .action.showcart {
+                                &:hover {
+                                    &::before {
+                                        color: @tag__red;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

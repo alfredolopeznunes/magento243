@@ -354,7 +354,11 @@ return [
         'Klarna_Kp' => 1,
         'Klarna_Onsitemessaging' => 1,
         'Klarna_KpGraphQl' => 1,
+<<<<<<< HEAD
         'LeSite_CustomBar' => 1,
+=======
+        'LeSite_CustomBar' => 0,
+>>>>>>> 012231cb3e462a9b35c7c09999a2bdf5e8aced55
         'Mageplaza_Core' => 1,
         'Mageplaza_Smtp' => 1,
         'PayPal_Braintree' => 1,

@@ -1,0 +1,45 @@
+<label class="label icon-search" for="search" data-role="minisearch-label">
+    <span><i class="fas fa-search"></i></span>
+</label>
+<a href="/customer/account/" class="myaccount" title="View My Account">
+    <i class="fas fa-user" title="View My Account"></i>
+</a>
+
+<script>
+    require([
+        'jquery',
+        'domReady!'
+    ], function ($) {
+        
+        // get height of header
+        let headerHeight = $('.page-header').height();
+
+        $('#maincontent').css({
+            "margin-top": headerHeight + "px"
+        });
+
+
+        
+        // windows scroll
+        let topNav = $('.page-header .panel.header'),
+            topNavHeigth = $('.page-header .panel.header').height(),
+            animateTime = 400;
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 280) {
+                
+                if(!$('.page-header').hasClass('sticky-active')) {
+                    $('.page-header').addClass('sticky-active');
+                    topNav.stop().animate({ height: '0', padding: '0' }, animateTime, function () { $(this).hide() });
+                }
+
+            } else {
+                if($('.page-header').hasClass('sticky-active')) {
+                    topNav.stop().show().animate({ height: topNavHeigth, padding: '10px' }, animateTime);
+                    $('.page-header').removeClass('sticky-active');
+                }
+            }
+        });
+        
+    });
+</script>
